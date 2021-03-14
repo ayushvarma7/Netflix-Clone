@@ -23,14 +23,17 @@ function Row({title, fetchUrl, isLargeRow= false}) {
            <h2> {title}</h2>
 
            <div className="row__posters">   {/* row__posters produces different genres */}
-            {movies.map((movie)=>(
-                <img className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+            {movies.map((movie)=>(       /* this is to reduce the  */
+                ((isLargeRow && movie.poster_path) || 
+                (!isLargeRow && movie.backdrop_path)) && (
+                    <img className={`row__poster ${isLargeRow && "row__posterLarge"}`}
                  /* row__poster produces different movie of same genre */
                 key={movie.id}
                 src={`${base_url}${
                     // movie?.backdrop_path
                 isLargeRow ? movie.poster_path : movie.backdrop_path
             }`} alt={movie.name}/>
+                )
             ))}
            </div>
             
