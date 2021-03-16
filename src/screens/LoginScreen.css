@@ -42,9 +42,12 @@
     top: 30%;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
     z-index: 1;
     color: #fff;
     padding: 20px;
+    right: 0;
+    left: 0;
 }
 
 .loginScreen__button{
